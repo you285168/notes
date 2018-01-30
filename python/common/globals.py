@@ -7,7 +7,6 @@ __author__ = 'Sola'
 
 import inspect, os, re
 
-
 def inspect_parameter(obj, kind = None, nodefault = None):
     '''
     get function/class args name
@@ -35,3 +34,19 @@ def inspect_parameter(obj, kind = None, nodefault = None):
                 args.append(name)
 
     return tuple(args)
+
+
+def _list_path(path, temp):
+    li = os.listdir(path)
+    if '__init__.py' not in li:
+        return
+    temp.append(path)
+    for name in li:
+        address = os.path.join(path, name)
+        if os.path.isdir(address):
+            _list_path(address, temp)
+
+def list_package(path):
+    temp = []
+    _list_path(path, temp)
+    return temp

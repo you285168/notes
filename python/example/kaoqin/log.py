@@ -78,10 +78,12 @@ def init_log(filename, loglv):
     fh.setFormatter(formatter)
     logger.addHandler(fh)
 
+    '''
     mh = SMTPMemoryHandler(20, 'smtp.qq.com', 'gongjg_fz@feiyu.com', 'gongjg_fz@feiyu.com', 'python web error mail', credentials=('gongjg_fz@feiyu.com', 'Icesola1'))
     mh.setLevel(logging.DEBUG)
     mh.setFormatter(formatter)
     logger.addHandler(mh)
+    '''
 
     ch = logging.StreamHandler()
     ch.setLevel(loglv)

@@ -5,7 +5,9 @@
 
 __author__ = 'Sola'
 
+
 import ctypes
 
-lib = ctypes.cdll.LoadLibrary('./libpycall.so')
-lib.foo(1, 3)
+lib = ctypes.cdll.LoadLibrary('./libcpython.so')
+
+lib.SayHello()
